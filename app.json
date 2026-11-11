@@ -2,6 +2,7 @@
   "expo": {
     "name": "curriculo-mobile",
     "slug": "curriculo-mobile",
+    "owner": "lucassoares-team",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -37,6 +38,22 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "8d390005-b9f6-4297-9b07-a7164d1e7ef4"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/8d390005-b9f6-4297-9b07-a7164d1e7ef4"
     }
   }
 }

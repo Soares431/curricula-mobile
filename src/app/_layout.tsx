@@ -1,18 +1,41 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Tabs } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { Text } from "react-native";
+import { colors } from "../theme";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+function icone(emoji: string) {
+  return ({ focused }: { focused: boolean }) => (
+    <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.55 }}>{emoji}</Text>
+  );
+}
 
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <>
+      <StatusBar style="light" />
+      <Tabs
+        screenOptions={{
+          headerStyle: { backgroundColor: colors.bg },
+          headerTintColor: colors.text,
+          headerTitleStyle: { fontWeight: "800" },
+          headerShadowVisible: false,
+          sceneStyle: { backgroundColor: colors.bg },
+          tabBarStyle: {
+            backgroundColor: colors.surface,
+            borderTopColor: colors.line,
+          },
+          tabBarActiveTintColor: colors.accent,
+          tabBarInactiveTintColor: colors.muted,
+          tabBarLabelStyle: { fontSize: 10, fontWeight: "600" },
+        }}
+      >
+        <Tabs.Screen name="index" options={{ title: "Home", headerTitle: "Lucas Soares", tabBarIcon: icone("🏠") }} />
+        <Tabs.Screen name="sobre" options={{ title: "Sobre", headerTitle: "Sobre", tabBarIcon: icone("👤") }} />
+        <Tabs.Screen name="academica" options={{ title: "Estudos", headerTitle: "Experiência Acadêmica", tabBarIcon: icone("🎓") }} />
+        <Tabs.Screen name="profissional" options={{ title: "Trabalho", headerTitle: "Experiência Profissional", tabBarIcon: icone("💼") }} />
+        <Tabs.Screen name="projetos" options={{ title: "Projetos", headerTitle: "Projetos", tabBarIcon: icone("🚀") }} />
+        <Tabs.Screen name="jogo" options={{ title: "Jogo", headerTitle: "Jogo da Forca", tabBarIcon: icone("🎮") }} />
+      </Tabs>
+    </>
   );
 }
