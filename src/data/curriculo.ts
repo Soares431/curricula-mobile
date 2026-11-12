@@ -98,7 +98,7 @@ export const tecnologiasApp = [
     itens: [
       "Expo SDK 58",
       "React Native",
-      "React (Hooks: useState, useRef, useEffect)",
+      "React (Hook useState)",
       "TypeScript",
     ],
   },
@@ -111,7 +111,6 @@ export const tecnologiasApp = [
     itens: [
       "StyleSheet",
       "ScrollView, Pressable, View, Text",
-      "Animated API (animação de entrada)",
       "Linking (abre GitHub, LinkedIn, e-mail e telefone)",
     ],
   },

@@ -26,8 +26,8 @@ function Line({ x1, y1, x2, y2, color, t = 5 }: LineProps) {
 }
 
 export function Hangman({ erros, perdeu }: { erros: number; perdeu: boolean }) {
-  const forca = colors.muted;
-  const corpo = perdeu ? colors.danger : colors.accent;
+  const forca = colors.dark;
+  const corpo = perdeu ? colors.danger : colors.primary;
   return (
     <View style={{ width: 200, height: 240, alignSelf: "center" }}>
       <Line x1={20} y1={225} x2={130} y2={225} color={forca} t={6} />

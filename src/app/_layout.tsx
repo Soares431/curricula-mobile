@@ -5,7 +5,7 @@ import { colors } from "../theme";
 
 function icone(emoji: string) {
   return ({ focused }: { focused: boolean }) => (
-    <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.55 }}>{emoji}</Text>
+    <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{emoji}</Text>
   );
 }
 
@@ -15,16 +15,13 @@ export default function RootLayout() {
       <StatusBar style="light" />
       <Tabs
         screenOptions={{
-          headerStyle: { backgroundColor: colors.bg },
-          headerTintColor: colors.text,
-          headerTitleStyle: { fontWeight: "800" },
+          headerStyle: { backgroundColor: colors.dark },
+          headerTintColor: colors.onDark,
+          headerTitleStyle: { fontWeight: "700" },
           headerShadowVisible: false,
           sceneStyle: { backgroundColor: colors.bg },
-          tabBarStyle: {
-            backgroundColor: colors.surface,
-            borderTopColor: colors.line,
-          },
-          tabBarActiveTintColor: colors.accent,
+          tabBarStyle: { backgroundColor: colors.surface, borderTopColor: colors.line },
+          tabBarActiveTintColor: colors.primaryDark,
           tabBarInactiveTintColor: colors.muted,
           tabBarLabelStyle: { fontSize: 10, fontWeight: "600" },
         }}

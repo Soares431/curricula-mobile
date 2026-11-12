@@ -71,17 +71,17 @@ export default function Jogo() {
       </View>
 
       <Text style={styles.tentativas}>
-        Tentativas restantes: <Text style={{ color: colors.accent, fontWeight: "800" }}>{MAX_ERROS - erradas.length}</Text> de {MAX_ERROS}
+        Tentativas restantes: <Text style={{ color: colors.primaryDark, fontWeight: "800" }}>{MAX_ERROS - erradas.length}</Text> de {MAX_ERROS}
       </Text>
 
       {venceu && (
-        <View style={[styles.msg, { borderColor: colors.success }]}>
-          <Text style={styles.msgTxt}>🎉 Você venceu! A palavra era {palavra}.</Text>
+        <View style={[styles.msg, { backgroundColor: colors.successBg }]}>
+          <Text style={[styles.msgTxt, { color: colors.successText }]}>Você venceu! A palavra era {palavra}.</Text>
         </View>
       )}
       {perdeu && (
-        <View style={[styles.msg, { borderColor: colors.danger }]}>
-          <Text style={styles.msgTxt}>💀 Você perdeu. A palavra era {palavra}.</Text>
+        <View style={[styles.msg, { backgroundColor: colors.dangerBg }]}>
+          <Text style={[styles.msgTxt, { color: colors.dangerText }]}>Você perdeu. A palavra era {palavra}.</Text>
         </View>
       )}
 
@@ -100,12 +100,12 @@ export default function Jogo() {
                   style={({ pressed }) => [
                     styles.tecla,
                     certa && { backgroundColor: colors.success },
-                    errada && { backgroundColor: colors.danger, opacity: 0.55 },
-                    pressed && { transform: [{ scale: 0.92 }] },
+                    errada && { backgroundColor: colors.danger, opacity: 0.5 },
+                    pressed && { opacity: 0.7 },
                     fim && !usada && { opacity: 0.45 },
                   ]}
                 >
-                  <Text style={[styles.teclaTxt, certa && { color: "#06240F" }]}>{l}</Text>
+                  <Text style={[styles.teclaTxt, certa && { color: colors.onDark }]}>{l}</Text>
                 </Pressable>
               );
             })}
@@ -125,25 +125,25 @@ const styles = StyleSheet.create({
   placar: { flexDirection: "row", justifyContent: "center", gap: 28 },
   placarTxt: { color: colors.text, fontWeight: "700", fontSize: 15 },
   painel: {
-    backgroundColor: colors.surface, borderRadius: radius.lg, borderWidth: 1,
+    backgroundColor: colors.surface, borderRadius: radius.md, borderWidth: 1,
     borderColor: colors.line, paddingVertical: space.md,
   },
   palavra: { flexDirection: "row", flexWrap: "wrap", justifyContent: "center", gap: 8 },
-  casa: { width: 30, height: 42, borderBottomWidth: 3, borderBottomColor: colors.accent, alignItems: "center", justifyContent: "flex-end" },
+  casa: { width: 30, height: 42, borderBottomWidth: 3, borderBottomColor: colors.primary, alignItems: "center", justifyContent: "flex-end" },
   letra: { color: colors.text, fontSize: 26, fontWeight: "800" },
   tentativas: { color: colors.muted, textAlign: "center", fontSize: 14 },
-  msg: { borderWidth: 1.5, borderRadius: radius.md, padding: space.md, backgroundColor: colors.surface },
+  msg: { borderRadius: radius.md, padding: space.md },
   msgTxt: { color: colors.text, fontSize: 15, fontWeight: "700", textAlign: "center" },
   teclado: { gap: 8, alignItems: "center" },
   linhaTecla: { flexDirection: "row", gap: 8 },
   tecla: {
-    width: 40, height: 46, borderRadius: radius.sm, backgroundColor: colors.surfaceHi,
+    width: 40, height: 46, borderRadius: radius.sm, backgroundColor: colors.chipBg,
     alignItems: "center", justifyContent: "center",
   },
-  teclaTxt: { color: colors.text, fontSize: 17, fontWeight: "800" },
+  teclaTxt: { color: colors.chipText, fontSize: 17, fontWeight: "700" },
   reiniciar: {
     alignSelf: "center", paddingHorizontal: 26, paddingVertical: 13, borderRadius: radius.md,
-    backgroundColor: colors.accent, marginTop: 4,
+    backgroundColor: colors.primary, marginTop: 4,
   },
-  reiniciarTxt: { color: colors.accentInk, fontWeight: "900", fontSize: 15 },
+  reiniciarTxt: { color: colors.onDark, fontWeight: "900", fontSize: 15 },
 });
